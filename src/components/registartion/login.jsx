@@ -44,7 +44,7 @@ const LoginPage = () => {
             onChange={handleInputChange}
           />
         </div>
-        <button type="submit">Войти</button>
+        <link></link>
       </form>
     </div>
   );
