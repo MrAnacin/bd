@@ -7,10 +7,10 @@ export default class App extends Component {
     return(
       <div>
         <div className="login_block">
-          <input type="text" />
-          <input type="password" />
-          <input type="submit" Логин />
-          <input>Зарегистрироватся</input>
+          <input className="log_text" type="text" placeholder="Логин" />
+          <input className="pas_text" type="password" placeholder="Пароль" />
+          <input className="log" type="submit" value={"Войти"} />
+          <input className="reg" type="button" value={"Зарегистрироваться"} />
         </div>
       </div>
     )
