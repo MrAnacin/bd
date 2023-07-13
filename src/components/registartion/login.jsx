@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import styles from '../registartion/login.module.css'
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -17,34 +18,38 @@ const LoginPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     
-    // Добавьте здесь вашу логику обработки входа
     console.log("Email:", email);
     console.log("Password:", password);
   };
 
   return (
-    <div>
+    <div className={styles.log_box}>
       <h2>Страница входа</h2>
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email:</label>
+        <div className={styles.log_email_box}>
           <input
+            placeholder="Логин"
+            className={styles.log_email}
             type="email"
             name="email"
             value={email}
             onChange={handleInputChange}
           />
         </div>
-        <div>
-          <label>Пароль:</label>
+        <div className={styles.log_password_box}>
           <input
+            placeholder="Пароль"
+            className={styles.log_password}
             type="password"
             name="password"
             value={password}
             onChange={handleInputChange}
           />
         </div>
-        <button type="submit">Войти</button>
+        <div className={styles.log_btn_box}>
+          <button className={styles.log_btn}>Логин</button>
+          <button className={styles.reg_btn} type="submit">Зарегистрироваться</button>
+        </div>
       </form>
     </div>
   );
