@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import styles from '../registartion/login.module.css'
+import logo_log from '../../image/logo_log.png'
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const [email, setEmail] = useState("");
@@ -24,7 +26,9 @@ const LoginPage = () => {
 
   return (
     <div className={styles.log_box}>
-      <h2>Страница входа</h2>
+      <div>
+        <img className={styles.logo_log_box} src={logo_log} alt="logo" />
+      </div>
       <form onSubmit={handleSubmit}>
         <div className={styles.log_email_box}>
           <input
@@ -48,7 +52,9 @@ const LoginPage = () => {
         </div>
         <div className={styles.log_btn_box}>
           <button className={styles.log_btn}>Логин</button>
-          <button className={styles.reg_btn} type="submit">Зарегистрироваться</button>
+          <Link to="/reg">
+            <button className={styles.reg_btn} type="submit">Зарегистрироваться</button>
+          </Link>
         </div>
       </form>
     </div>

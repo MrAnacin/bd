@@ -46,6 +46,7 @@
     line-height: 24px;
     letter-spacing: -0.05000000074505806px;
     text-align: left;
+    border-bottom: 1px solid #CACDD8;
 }
 
 .log_email_box{
@@ -67,6 +68,7 @@
     line-height: 24px;
     letter-spacing: -0.05000000074505806px;
     text-align: left;
+    border-bottom: 1px solid #CACDD8;
 }
 
 .log_box{
@@ -77,10 +79,16 @@
     justify-content: center;
     align-items: center;
     gap: 16px;
-    padding-top: 20%;
+    padding-top: 18%;
 }
 .log_btn_box{
     gap: 16px;
     display: flex;
     flex-direction: column;
+}
+.logo_log_box{
+    width: 220px;
+    height: 35px;
+    top: 33px;
+    left: 73px;
 }
