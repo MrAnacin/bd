@@ -1,40 +1,58 @@
-import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
-import * as Yup from 'yup';
-import styled from 'styled-components';
+import React, { useState } from "react";
 
-const StyledErrorMessage = styled.div`
-  color: red;
-`;
+const PasswordForm = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [passwordsMatch, setPasswordsMatch] = useState(true);
 
-const validationSchema = Yup.object().shape({
-  username: Yup.string().required('Required'),
-  email: Yup.string().email('Invalid email').required('Required'),
-  password: Yup.string().min(8, 'Must be at least 8 characters').required('Required'),
-});
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (password === confirmPassword) {
+      // Пароли совпадают, выполняем дополнительные действия здесь
+    } else {
+      setPasswordsMatch(false);
+    }
+    if (name === "email") {
+      setEmail(value);
+    } else if (name === "password") {
+      setPassword(value);
+    }
+  };
 
-const RegisterPage = () => (
-  <Formik
-    initialValues={{ username: '', email: '', password: '' }}
-    validationSchema={validationSchema}
-    onSubmit={(values, { setSubmitting }) => {
-      // Submissive here
-      setSubmitting(false);
-    }}
-  >
-    <Form>
-      <Field type="email" name="email" />
-      <StyledErrorMessage component="div" name="email" />
+  return (
+    <form onSubmit={handleSubmit}>
+        <div>
+          <input
+            placeholder="Логин"
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleInputChange}
+          />
+        </div>
+      <label>
+        Пароль:
+        <input
+          type="password"
+          value={password}
+          onChange={(event) => setPassword(event.target.value)}
+        />
+      </label>
+      <br />
+      <label>
+        Повторите пароль:
+        <input
+          type="password"
+          value={confirmPassword}
+          onChange={(event) => setConfirmPassword(event.target.value)}
+        />
+      </label>
+      <br />
+      {!passwordsMatch && <p>Пароли не совпадают</p>}
+      <button type="submit">Отправить</button>
+    </form>
+  );
+};
 
-      <Field type="password" name="password_2" />
-      <StyledErrorMessage component="div" name="password_2" />
-
-      <Field type="password" name="password" />
-      <StyledErrorMessage component="div" name="password" />
-
-      <button type="submit">Зарегистрироваться</button>
-    </Form>
-  </Formik>
-);
-
-export default RegisterPage;
+export default PasswordForm;
